@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "942915309085",
+    "project_id": "sirene-842ed",
+    "storage_bucket": "sirene-842ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942915309085:android:f84c940a512122b61500f4",
+        "android_client_info": {
+          "package_name": "com.company.sirene"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942915309085-9ofioptbi10e4uoo31ee9mql23tlo4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY52e5CeL58l_GbTFDzv0Ohszszx-pIuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942915309085-9ofioptbi10e4uoo31ee9mql23tlo4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "942915309085-cm5gv4i1nd7dk4b2dknqi4bre8su1h9n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ninja"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942915309085:android:3f3d406f7e8d15901500f4",
+        "android_client_info": {
+          "package_name": "com.example.ninja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942915309085-9ofioptbi10e4uoo31ee9mql23tlo4bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY52e5CeL58l_GbTFDzv0Ohszszx-pIuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942915309085-9ofioptbi10e4uoo31ee9mql23tlo4bl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "942915309085-cm5gv4i1nd7dk4b2dknqi4bre8su1h9n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ninja"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
