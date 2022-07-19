@@ -34,4 +34,7 @@ class PatienVisit {
         'ruang_kamar_tidur_id': ruangKamarTidurId,
         'ruangan_id': ruanganId
       };
+
+  static PatienVisit fromJson(Map<String, dynamic> json) =>
+      PatienVisit(nama: json['nama'], noRm: json['noRm']);
 }

@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:ninja/src/models/patient_visit.dart';
 import 'package:ninja/src/screens/patient_detail.dart';
 
 class SearchPatient extends StatefulWidget {
@@ -192,29 +194,55 @@ class SearchResultsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      // Providing a restorationId allows the ListView to restore the
-      // scroll position when a user leaves and returns to the app after it
-      // has been killed while running in the background.
-      restorationId: 'sampleItemListView',
-      itemCount: 3,
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-            title: Text('SampleItem'),
-            leading: const CircleAvatar(
-              // Display the Flutter Logo image asset.
-              foregroundImage: AssetImage('assets/images/flutter_logo.png'),
-            ),
-            onTap: () {
-              // Navigate to the details page. If the user leaves and returns to
-              // the app after it has been killed while running in the
-              // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(
-                context,
-                PatientDetail.routeName,
-              );
-            });
-      },
-    );
+    return StreamBuilder<List<PatienVisit>>(
+        stream: readPatientVisit(),
+        builder: (_, snapshot) {
+          if (snapshot.hasError) {
+            return const Text('Patient not found');
+          }
+          if (snapshot.hasData) {
+            final patients = snapshot.data!;
+            return ListView(
+              children: patients.map(buildPatient).toList(),
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        });
+
+    // ListView.builder(
+    //   // Providing a restorationId allows the ListView to restore the
+    //   // scroll position when a user leaves and returns to the app after it
+    //   // has been killed while running in the background.
+    //   restorationId: 'sampleItemListView',
+    //   itemCount: 3,
+    //   itemBuilder: (BuildContext context, int index) {
+    //     return ListTile(
+    //         title: Text('SampleItem'),
+    //         leading: const CircleAvatar(
+    //           // Display the Flutter Logo image asset.
+    //           foregroundImage: AssetImage('assets/images/flutter_logo.png'),
+    //         ),
+    //         onTap: () {
+    //           // Navigate to the details page. If the user leaves and returns to
+    //           // the app after it has been killed while running in the
+    //           // background, the navigation stack is restored.
+    //           Navigator.restorablePushNamed(
+    //             context,
+    //             PatientDetail.routeName,
+    //           );
+    //         });
+    //   },
+    // );
   }
+
+  Widget buildPatient(PatienVisit patientVisit) => ListTile(
+      title: Text(patientVisit.noRm), subtitle: Text(patientVisit.nama));
+
+  Stream<List<PatienVisit>> readPatientVisit() => FirebaseFirestore.instance
+      .collection('test-kunjungan')
+      .snapshots()
+      .map((snapshot) => snapshot.docs
+          .map((doc) => PatienVisit.fromJson(doc.data()))
+          .toList());
 }

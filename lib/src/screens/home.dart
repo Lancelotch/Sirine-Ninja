@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:ninja/src/models/models.dart';
 import 'package:ninja/src/screens/form_entry_patient.dart';
-import 'package:ninja/src/screens/login_screen.dart';
 import 'package:ninja/src/screens/search_patient.dart';
-import 'package:ninja/src/widgets/searchbar_history.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
